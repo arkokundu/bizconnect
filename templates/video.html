@@ -1,0 +1,47 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>Enter Connection ID of Video data to be viewed - </h1>
+<form method="POST" action="/video">
+ <p>
+   <input type="text" name="connection_id" placeholder="connection_id" value="{{ request.form['connection_id'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>Video ID</td>
+        <td>Connection ID</td>
+        <td>Video Duration</td>
+        <td>Network Ping</td>
+        <td>Quality</td>
+            <td>Video on Flag</td>
+            <td>Video Start Time</td>
+            <td>Video End Time</td>
+
+    {% for n in video_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+        <td>{{n[5]}}</td>
+        <td>{{n[6]}}</td>
+        <td>{{n[7]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>

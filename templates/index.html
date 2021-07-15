@@ -1,0 +1,61 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Biz Connect</h1>
+
+<p><a href="business_view">Business</a>
+  <a href="person_view">Person</a>
+    <a href="connection_view">Connection</a>
+    <a href="preference_view">Preferences</a>
+<!--  <a href="test">Test</a>-->
+<!--  <a href="test">Individuals</a>-->
+</p>
+
+
+<form method="POST" action="/search_matches">
+<p>Find top matches for person<input type="text" name="name"> <input type="submit" value="Go"></p>
+    <table>
+        <tr ><td>Connection Time</td>
+        <td>Person Name</td>
+        <td>Business Name</td>
+        <td>Match Score</td>
+        <td>Ind_Category</td>
+        <td>Ind_Country</td>
+        <td>Ind_Compensation</td>
+        <td>Ind_Duration</td>
+        <td>Bus_Category</td>
+        <td>Bus_Country</td>
+        <td>Bus_Compensation</td>
+        <td>Bus_Duration</td>
+       </tr>
+
+    {% for n in matches_data %}
+           <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+    <td>{{n[5]}}</td>
+    <td>{{n[6]}}</td>
+    <td>{{n[7]}}</td>
+    <td>{{n[8]}}</td>
+    <td>{{n[9]}}</td>
+    <td>{{n[10]}}</td>
+    <td>{{n[11]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+</body>
+
+
+</html>

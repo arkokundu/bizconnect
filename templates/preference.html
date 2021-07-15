@@ -1,0 +1,47 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>View Preferences by Nature of Work</h1>
+<form method="POST" action="/preference">
+ <p>Category
+   <input type="text" name="nature_of_work" placeholder="Category" value="{{ request.form['nature_of_work'] }}">
+    <input type="text" name="entity_type" placeholder="individual/business" value="{{ request.form['entity_type'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr >
+        <td>Preference ID</td>
+        <td>Entity Type</td>
+        <td>Entity ID</td>
+        <td>Country</td>
+        <td>Category</td>
+        <td>Compensation</td>
+        <td>Duration of Project</td>
+
+    {% for n in preference_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+        <td>{{n[5]}}</td>
+        <td>{{n[6]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>

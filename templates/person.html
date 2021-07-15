@@ -1,0 +1,51 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>View Person Information</h1>
+<form method="POST" action="/person">
+ <p>Category <select id="category" name="category" >
+     <option value=""></option>
+    <option value="employee">employee</option>
+    <option value="individual">individual</option>
+  </select>
+<!--     <input type="text" name="category" placeholder="employee/individual" value="{{ request.form['category'] }}">-->
+     Date of Birth after <input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>Person Type</td>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Email Address</td>
+        <td>DOB</td>
+        <td>Date Started</td>
+
+    {% for n in person_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+    <td>{{n[5]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+<!--    <div>-->
+<!--    {% for n in person_data %}-->
+<!--    <div>{{n}}</div>-->
+<!--    {% endfor %}-->
+<!--  </div>-->
+
+</form>
+
+</body>
+
+</html>

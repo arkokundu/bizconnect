@@ -1,0 +1,50 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>View Business Information</h1>
+<p><a href="business_add">Add a business</a>
+<form method="POST" action="/business">
+
+ <p>Category
+   <input type="text" name="industry" placeholder="industry" value="{{ request.form['industry'] }}">
+     <input type="text" name="name" placeholder="name" value="{{ request.form['name'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>ID</td>
+        <td>Name</td>
+        <td>Domain</td>
+        <td>Year Founded</td>
+        <td>Industry</td>
+        <td>Locality</td>
+        <td>Country</td>
+        <td>LinkedINURL</td></tr>
+
+    {% for n in business_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td><a href="https://www.{{n[2]}}">{{n[2]}}</a></td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+    <td>{{n[5]}}</td>
+    <td>{{n[6]}}</td>
+    <td><a href="https://www.{{n[7]}}">{{n[7]}}</a></td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>

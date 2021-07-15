@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a business</title>
+
+</head>
+<body>
+<form method="POST" action="/business_add_to_db">
+<p>Industry<input type="text" name="industry" required></p>
+<p>Name<input type="text" name="name" required>
+Domain<input type="text" name="domain" required></p>
+    <p>Year Founded<input type="number" min="1800" max="2020" step="1" value="YYYY" name="year_founded" required>
+Locality<input type="text" name="locality" required></p>
+        <p>Country<input type="text" name="country" required>
+LinkedinURL<input type="text" name="linkedin" required></p>
+    <input type="submit" value="Go">
+</body>
+</html>

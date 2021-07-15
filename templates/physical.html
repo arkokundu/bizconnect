@@ -1,0 +1,38 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>Enter Connection ID of Physical Meetings data - </h1>
+<form method="POST" action="/physical">
+ <p>
+   <input type="text" name="connection_id" placeholder="connection_id" value="{{ request.form['connection_id'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>Meeting ID</td>
+        <td>Connection ID</td>
+        <td>Location</td>
+
+
+    {% for n in physical_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>

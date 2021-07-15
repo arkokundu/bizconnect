@@ -1,0 +1,45 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>Enter Connection ID of Chat to be viewed - </h1>
+<form method="POST" action="/chat">
+ <p>
+   <input type="text" name="connection_id" placeholder="connection_id" value="{{ request.form['connection_id'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>Chat ID</td>
+        <td>Connection ID</td>
+        <td>Chat Duration</td>
+        <td>Chat Text</td>
+        <td>No of Messages</td>
+            <td>Chat Start Time</td>
+            <td>Chat End Time</td>
+
+    {% for n in chat_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+        <td>{{n[5]}}</td>
+        <td>{{n[6]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>

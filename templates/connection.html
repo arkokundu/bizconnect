@@ -1,0 +1,50 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+<h1>View Past Connections</h1>
+<p><a href="chat_view">Connections with Chat</a>
+<p><a href="video_view">Connections with Video Meetings</a>
+<p><a href="physical_view">Connections with Physical Meetings</a>
+
+<form method="POST" action="/connection">
+ <p>FirstSwipeBy
+   <input type="text" name="first_swipe_by" placeholder="first_swipe_by" value="{{ request.form['first_swipe_by'] }}">
+<!--     Date of Birth<input type="date" name="dob" placeholder="date of birth greater than" value="{{ request.form['dob'] }}">-->
+     <input type="submit" value="Filter"></p>
+
+    <table>
+        <tr ><td>Connection ID</td>
+        <td>Connection Timestamp</td>
+        <td>First Swipe By</td>
+        <td>Employee ID</td>
+        <td>Individual ID</td>
+        <td>Chat Happened?</td>
+        <td>Video Happened?</td>
+        <td>Physical Meeting Happened?</td>
+    {% for n in connection_data %}
+        <tr>
+    <td>{{n[0]}}</td>
+    <td>{{n[1]}}</td>
+    <td>{{n[2]}}</td>
+    <td>{{n[3]}}</td>
+    <td>{{n[4]}}</td>
+    <td>{{n[5]}}</td>
+    <td>{{n[6]}}</td>
+    <td>{{n[7]}}</td>
+            </tr>
+    {% endfor %}
+  </table>
+</form>
+
+
+</body>
+
+
+</html>
